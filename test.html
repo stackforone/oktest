@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css">
+    <style>
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: ;
+            color: white;
+            padding: 7px;
+            text-align: center;
+        }
+
+        .header h3 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .user-info {
+            text-align: left;
+            padding: 20px;
+            color: white;
+        }
+
+        .user-info p {
+            margin: 5px 0;
+        }
+
+        .menu-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-color: white;
+        }
+
+        .menu-list li {
+            padding: 15px 20px;
+            border-bottom: 1px solid #f1f1f1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .menu-list li:hover {
+            background-color: #f9f9f9;
+        }
+
+        .menu-list li i {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        .total-sale {
+            padding: 20px;
+            background-color: white;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .total-sale h4 {
+            margin: 0;
+            font-size: 15px;
+            color: #333;
+        }
+
+        .total-sale p {
+            margin: 5px 0 0;
+            color: #E22427;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logout-button {
+            display: block;
+            background-color: #EB4343;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 20px;
+            font-size: 16px;
+        }
+
+        /* ปุ่มเปิดป็อปอัพ */
+        .menu {
+            display: flex;
+            justify-content: space-around;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            padding: 10px 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #333;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .menu a i {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        /* Popup Container */
+        .popup-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        /* Popup Content */
+        .popup-content {
+            background-color: white;
+            width: 90%;
+            max-width: 500px;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .popup-content h3 {
+            margin-top: 0;
+            font-size: 22px;
+        }
+  
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .popup-content .user-info {
+            background-color: #E22427;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .popup-content .user-info p {
+            margin: 5px 0;
+        }
+
+        .logout-button {
+    background-color: white; /* พื้นหลังสีขาว */
+    color: black; /* สีตัวอักษรเป็นสีดำ */
+    padding: 7px 15px;
+    border: 1px solid black; /* ขอบสีดำ */
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+    </style>
+    <title>บัญชีผู้ใช้</title>
+</head>
+<body>
+
+    <div class="header">
+        <h3></h3>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
+
+    <ul class="menu-list">
+        <li><i class="las la-home"></i> แผงควบคุม</li>
+        <li><i class="las la-diamond"></i> ผลิตภัณฑ์</li>
+        <li><i class="las la-shopping-cart"></i> คำสั่งซื้อ</li>
+        <li><i class="las la-cog"></i> การตั้งค่าร้านค้า</li>
+        <li><i class="las la-chart-bar"></i> อัดแผนเสียง</li>
+        <li><i class="las la-wallet"></i> กระเป๋าเงินของฉัน</li>
+        <li><i class="las la-user"></i> จัดการโปรไฟล์</li>
+    </ul>
+
+    <div class="total-sale">
+        <h4>ขายจำนวน</h4>
+        <p>฿7,000,000</p>
+        <h4>ยอดขายของคุณ (เดือนปัจจุบัน)</h4>
+    </div>
+
+    <a href="#" class="logout-button">ออกจากระบบ</a>
+
+    <div class="menu">
+            <a href="dashboard.html">
+                <i class="las la-home fs-20 opacity-60"></i> บ้าน
+            </a>
+            <a href="#">
+                <i class="las la-list-ul fs-20 opacity-60"></i> หมวดหมู่
+            </a>
+            <a href="#">
+                <i class="las la-shopping-bag la-2x text-white"></i> รถเข็น
+            </a>
+            <a href="#">
+                <i class="las la-bell fs-20 opacity-60"></i> การแจ้งเตือน
+            </a>
+            <a href="account.html">
+                <i class="fas fa-user"></i> บัญชีเงินฝาก
+            </a>
+        </div>
+
+    <!-- Popup สำหรับข้อมูลบัญชี -->
+    <div class="popup-container" id="popup">
+        <div class="popup-content">
+            <span class="close-btn" id="closeBtn">&times;</span>
+            <div class="user-info">
+                <h3>ภัทรพร โหมกะโทก</h3>
+                <p>0825405249</p>
+                <p>รหัสสำหรับ: 1c72QSQk845933h5</p>
+                <p>id: 35988</p>
+                <p>LV1</p>
+            </div>
+            <button class="logout-button">ออกจากระบบ</button>
+        </div>
+    </div>
+
+    <script>
+        // เปิดป็อปอัพเมื่อคลิกปุ่มบัญชีเงินฝาก
+        document.getElementById("accountBtn").addEventListener("click", function() {
+            document.getElementById("popup").style.display = "flex";
+        });
+
+        // ปิดป็อปอัพเมื่อคลิกปุ่มปิด
+        document.getElementById("closeBtn").addEventListener("click", function() {
+            document.getElementById("popup").style.display = "none";
+        });
+    </script>
+
+</body>
+</html>
